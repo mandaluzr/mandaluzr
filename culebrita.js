@@ -257,7 +257,8 @@ function empezarJuego() {
 dibujarParedes(CTX);
 dibujarTexto(CTX, "Click para empezar!", 300, 100);
 dibujarTexto(CTX, "Desktop: Muévete con ↓ ↑ → ←", 300, 310);
-dibujarTexto(CTX, "Móbil: Tap para girar la viborita", 300, 400);
+dibujarTexto(CTX, "Móvil: Tap para girar la viborita", 300, 400);
+
 
 JUEGO_CANVAS.addEventListener("click", function () {
     if(ciclo === undefined) {
