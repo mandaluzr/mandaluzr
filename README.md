@@ -35,7 +35,7 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 ## 📬 Get in Touch
 
 - Connect with me on [Linkedin](https://www.linkedin.com/in/marcos-andaluz-de-rosas)
-- Contact me by email [Email] -> mandaluzr@hotmail.com
+- Contact me by email -> mandaluzr@hotmail.com
 
 Thanks for stopping by! Let's connect and explore the fascinating world of technology together. 🚀
 
