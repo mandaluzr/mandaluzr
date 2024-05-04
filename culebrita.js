@@ -228,8 +228,8 @@ function cicloDeJuego() {
 function gameOver() {
     clearInterval(ciclo);
     ciclo = undefined;
-    dibujarTexto(CTX, "Fin del juego!", 300, 260);
-    dibujarTexto(CTX, "Haz click para volver a empezar! ", 300, 310);
+    dibujarTexto(CTX, "End of game!", 300, 260);
+    dibujarTexto(CTX, "Click to start again! ", 300, 310);
     CONTENEDOR_NINTENDO.classList.add(CSS_CLASE_SACUDIR_HORIZONTALMENTE);
 }
 
@@ -255,9 +255,9 @@ function empezarJuego() {
 }
 
 dibujarParedes(CTX);
-dibujarTexto(CTX, "Click para empezar!", 300, 100);
-dibujarTexto(CTX, "Desktop: Muévete con ↓ ↑ → ←", 300, 310);
-dibujarTexto(CTX, "Móvil: Tap para girar la viborita", 300, 400);
+dibujarTexto(CTX, "Click to start!", 300, 100);
+dibujarTexto(CTX, "Desktop: Move with ↓ ↑ → ←", 300, 310);
+dibujarTexto(CTX, "Móvil: Tap to move the snake", 300, 400);
 
 
 JUEGO_CANVAS.addEventListener("click", function () {
