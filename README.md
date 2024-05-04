@@ -20,7 +20,7 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 
 - 🚀 Learning Full Stack Web Development
   - Exploring the ins and outs of React, TypeScript and Ruby on Rails.
-  - Exploring about Flutter and the benefits of it.
+  - Exploring about Flutter and its benefits.
   - Styling with Tailwind CSS to create modern and responsive user interfaces.
   - Learning how to wrtire proper RFCs. ("Request For Comments" -> Documents where we request for comments about some future idea to develop and it's architecture among other things).
 
