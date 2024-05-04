@@ -15,7 +15,7 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 
 
 ## Tech Stack
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,js,react,aws,typescript,git,ruby,rails)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,react,typescript,ruby,rails,aws,git,docker)](https://skillicons.dev)
 
 ## 🌱 Currently Exploring
 
