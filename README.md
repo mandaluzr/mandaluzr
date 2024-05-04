@@ -2,7 +2,6 @@
 
 I am a passionate Product-Minded Software Engineer, driven by a curiosity for technology, sports & gaming.
 
-![mandaluzr's Stats](https://github-readme-stats.vercel.app/api?username=mandaluzr&theme=vue-dark&show_icons=true&hide_border=true&count_private=true)
 
 ## 🚀 About Me
 
