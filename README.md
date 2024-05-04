@@ -10,7 +10,7 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 - ⚽️ & 🎾 Fútbol & paddle player with my friends
 
 ## My Game
-- 📝 Here you can find a funny snake game developed a couple of years ago [snake-game](https://mandaluzr.github.io/mandaluzr)
+- 🐍🎮 Here you can find a funny snake game developed a couple of years ago [snake-game](https://mandaluzr.github.io/mandaluzr)
 
 
 ## Tech Stack
