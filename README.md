@@ -8,6 +8,7 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 - 🔭 I'm currently working as a Software Engineer in Factorial HR.
 - 🌟 AWS Certified Cloud Practitioner.
 - ⚽️ & 🎾 Fútbol & paddle player with my friends
+- 🎮 Gamer
 
 ## My Game
 - 🐍🎮 Here you can find a funny snake game developed a couple of years ago [snake-game](https://mandaluzr.github.io/mandaluzr)
