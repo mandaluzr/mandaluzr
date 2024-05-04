@@ -7,15 +7,15 @@ I am a passionate Product-Minded Software Engineer, driven by a curiosity for te
 
 - 🔭 I'm currently working as a Software Engineer in Factorial HR.
 - 📝 Here you can find a funny snake game developed a couple of years ago [snake-game](https://mandaluzr.github.io/mandaluzr)
-- 🌐 Proud member of the [Hackernoon Blogging Fellowship](https://hackernoon.com/), contributing to the tech community.
-- ✍️ Content Writer at [freeCodeCamp](https://www.freecodecamp.org/), gearing up to share valuable insights with the global coding community.
+- 🌟 AWS Certified Cloud Practitioner.
+- ⚽️ & 🎾 Fútbol & paddle player with my friends
 
 ## My Articles
 - [JavaScript Engine and Runtime Explained](https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained/)
 
 
 ## Tech Stack
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,wasm)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,js,react,aws,typescript,git,ruby,rails)](https://skillicons.dev)
 
 ## 🌱 Currently Exploring
 
