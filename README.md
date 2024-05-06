@@ -1,6 +1,7 @@
 # Hi, I'm Marcos Andaluz de Rosas! 👋
 
-I am a passionate Product-Minded Software Engineer, driven by a curiosity for technology, sports & gaming.
+I am a passionate Product-Minded Software Engineer, with customer & product experience, driven by a curiosity for technology, sports & gaming.
+
 
 
 ## 🚀 About Me
