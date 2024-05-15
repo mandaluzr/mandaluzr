@@ -29,9 +29,9 @@ I am a passionate Product-Minded Software Engineer, with customer & product expe
 
  ## 🏆 Achievements
 
-- 🌟 Develop from scratch all the engagement & communities section from Factorial.
-- 🌟 Develop several integrations between Factorial and different partners.
-- 🌟 Get my AWS Certified Cloud Practitioner Badge.
+- 🌟 Developed from scratch all the engagement & communities section from Factorial.
+- 🌟 Developed several integrations between Factorial and different partners.
+- 🌟 Got my AWS Certified Cloud Practitioner Badge.
 
 
 ## 📬 Get in Touch
