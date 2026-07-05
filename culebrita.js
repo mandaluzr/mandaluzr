@@ -23,6 +23,13 @@ let SONIDO_GANASTE_PUNTO = new Audio("ganaste_un_punto.wav");
 let CSS_CLASE_SACUDIR_HORIZONTALMENTE = "shake-horizontal";
 let CSS_CLASE_ESCONDER = "esconder";
 
+let INPUT_USUARIO = document.getElementById("inputUsuario");
+let BOTON_GUARDAR_USUARIO = document.getElementById("botonGuardarUsuario");
+let LISTA_RANKING = document.getElementById("listaRanking");
+let ESTADO_JUGADOR = document.getElementById("estadoJugador");
+let STORAGE_KEY_RANKING = "snakeLeaderboard";
+let STORAGE_KEY_JUGADOR = "snakeCurrentUser";
+
 // AGREGAR PARA PROBAR SONIDO CUANDO PERDÉS -> EXTRA POINT por mí.
 
 /* ESTADO DEL JUEGO */
@@ -33,6 +40,109 @@ let nuevaDireccion;
 let comida;
 let ciclo;
 let puntos;
+let jugadorActual = "";
+
+function obtenerRanking() {
+    try {
+        const rankingGuardado = localStorage.getItem(STORAGE_KEY_RANKING);
+        return rankingGuardado ? JSON.parse(rankingGuardado) : [];
+    } catch (error) {
+        console.warn("No se pudo leer el ranking", error);
+        return [];
+    }
+}
+
+function guardarRanking(ranking) {
+    try {
+        localStorage.setItem(STORAGE_KEY_RANKING, JSON.stringify(ranking));
+    } catch (error) {
+        console.warn("No se pudo guardar el ranking", error);
+    }
+}
+
+function obtenerJugadorActual() {
+    try {
+        return localStorage.getItem(STORAGE_KEY_JUGADOR) || "";
+    } catch (error) {
+        console.warn("No se pudo leer el jugador actual", error);
+        return "";
+    }
+}
+
+function guardarJugadorActual(nombre) {
+    try {
+        localStorage.setItem(STORAGE_KEY_JUGADOR, nombre);
+    } catch (error) {
+        console.warn("No se pudo guardar el jugador actual", error);
+    }
+}
+
+function actualizarEstadoJugador() {
+    if (jugadorActual) {
+        ESTADO_JUGADOR.innerText = `Player: ${jugadorActual}`;
+    } else {
+        ESTADO_JUGADOR.innerText = "No player selected";
+    }
+}
+
+function registrarJugadorDesdeInput() {
+    const nombre = (INPUT_USUARIO.value || "").trim();
+
+    if (nombre) {
+        jugadorActual = nombre;
+        guardarJugadorActual(nombre);
+        INPUT_USUARIO.value = nombre;
+    } else if (!jugadorActual) {
+        jugadorActual = "Player";
+        guardarJugadorActual(jugadorActual);
+    }
+
+    actualizarEstadoJugador();
+    return jugadorActual;
+}
+
+function renderRanking() {
+    const ranking = obtenerRanking()
+        .sort((a, b) => b.maxScore - a.maxScore)
+        .slice(0, 10);
+
+    LISTA_RANKING.innerHTML = "";
+
+    if (ranking.length === 0) {
+        const item = document.createElement("li");
+        item.innerText = "No scores yet";
+        LISTA_RANKING.appendChild(item);
+        return;
+    }
+
+    ranking.forEach((entry, index) => {
+        const item = document.createElement("li");
+        item.innerText = `${index + 1}. ${entry.userName} - ${entry.maxScore} pts`;
+        LISTA_RANKING.appendChild(item);
+    });
+}
+
+function guardarPuntajeJugador(puntaje) {
+    const nombre = registrarJugadorDesdeInput();
+    const ranking = obtenerRanking();
+    const jugadorExistente = ranking.find((entry) => entry.userName.toLowerCase() === nombre.toLowerCase());
+
+    if (jugadorExistente) {
+        jugadorExistente.maxScore = Math.max(jugadorExistente.maxScore, puntaje);
+    } else {
+        ranking.push({ userName: nombre, maxScore: puntaje });
+    }
+
+    guardarRanking(ranking);
+    renderRanking();
+}
+
+jugadorActual = obtenerJugadorActual();
+if (jugadorActual) {
+    INPUT_USUARIO.value = jugadorActual;
+}
+actualizarEstadoJugador();
+renderRanking();
 
 /* DIBUJAR */
 
@@ -165,7 +275,8 @@ function ocurrioColision(culebra) {
         PUNTOS_TEXTO.innerText = "PUNTOS: " + puntos;*/
 
 function mostrarPuntos(puntos) {
-    PUNTOS_TEXTO.innerText = "PUNTOS: " + puntos;
+    const nombreJugador = jugadorActual ? ` | ${jugadorActual}` : "";
+    PUNTOS_TEXTO.innerText = "PUNTOS: " + puntos + nombreJugador;
 }
 
 function incrementarPuntaje() {
@@ -175,6 +286,11 @@ function incrementarPuntaje() {
 }
 
 /* RESPONSIVE */
+
+BOTON_GUARDAR_USUARIO.addEventListener("click", function () {
+    registrarJugadorDesdeInput();
+    renderRanking();
+});
 
 window.addEventListener("orientationchange", function() {
     TITULO.classList.add(CSS_CLASE_ESCONDER);
@@ -231,27 +347,29 @@ function gameOver() {
     dibujarTexto(CTX, "End of game!", 300, 260);
     dibujarTexto(CTX, "Click to start again! ", 300, 310);
     CONTENEDOR_NINTENDO.classList.add(CSS_CLASE_SACUDIR_HORIZONTALMENTE);
+    guardarPuntajeJugador(puntos);
 }
 
 function empezarJuego() {
-     culebra = [
+    registrarJugadorDesdeInput();
+
+    culebra = [
         {posX: 60, posY: 20},
         {posX: 40, posY: 20},
         {posX: 20, posY: 20}
     ];
     
-     direccionActual = DIRECCIONES.DERECHA;
-     nuevaDireccion = direccionActual;
+    direccionActual = DIRECCIONES.DERECHA;
+    nuevaDireccion = direccionActual;
     
-     comida = generarNuevaPosicionComida(culebra);
-     ciclo;
-     puntos = 0;
+    comida = generarNuevaPosicionComida(culebra);
+    puntos = 0;
 
-     mostrarPuntos(puntos);
+    mostrarPuntos(puntos);
 
-     CONTENEDOR_NINTENDO.classList.remove(CSS_CLASE_SACUDIR_HORIZONTALMENTE);
+    CONTENEDOR_NINTENDO.classList.remove(CSS_CLASE_SACUDIR_HORIZONTALMENTE);
 
-     ciclo = setInterval(cicloDeJuego, FPS);
+    ciclo = setInterval(cicloDeJuego, FPS);
 }
 
 dibujarParedes(CTX);
@@ -262,6 +380,7 @@ dibujarTexto(CTX, "Móvil: Tap to move the snake", 300, 400);
 
 JUEGO_CANVAS.addEventListener("click", function () {
     if(ciclo === undefined) {
+        registrarJugadorDesdeInput();
         empezarJuego();
         return;
     }
